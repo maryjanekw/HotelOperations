@@ -9,7 +9,13 @@ public class Room {
     private double price;
     private boolean occupied;
     private boolean dirty;
-    private boolean available;
+
+    public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
+        this.numberOfBeds = numberOfBeds;
+        this.price = price;
+        this.occupied = occupied;
+        this.dirty = dirty;
+    }
 
     public int getNumberOfBeds() {
         return numberOfBeds;
@@ -27,7 +33,8 @@ public class Room {
         return dirty;
     }
 
+    // Derived getter - true is room is not occupied and not dirty
     public boolean isAvailable() {
-        return available;
+        return !occupied && !dirty;
     }
 }
