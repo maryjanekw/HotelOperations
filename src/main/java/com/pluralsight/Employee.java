@@ -5,11 +5,13 @@ public class Employee {
     // The Employee class is used to store and calculate payroll information about and
     //employee
 
+
+    // Employee information
     private String employeeId;
     private  String name;
     private String department;
-    private double payRate;
-    private double hoursWorked;
+    private double payRate; // hourly pay rate
+    private double hoursWorked; // accumulated hours worked
 
     public Employee(String employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -71,16 +73,20 @@ public class Employee {
         return (getRegularHours() * payRate) + (getOvertimeHours() * payRate * 1.5);
     }
 
+    // Employee time tracker
+    private boolean isPunchedIn = false;
     private double punchInTime;
 
-    public void punchIn(double time){
-        punchInTime = time;
-        System.out.println(name + " puched in at" + time);
-    }
-
-    public void punchOut(double time){
-        double hours = time - punchInTime;
-        hoursWorked += hours;
-        System.out.println(name + " punched out at " + time + " (worked" + hours + "hrs)");
+    public void punchTimeCard(double time) {
+        if (!isPunchedIn) {
+            punchInTime = time;
+            isPunchedIn = true;
+            System.out.println(name + " punched in at " + time);
+        } else {
+            double hours = time - punchInTime;
+            hoursWorked += hours;
+            isPunchedIn = false;
+            System.out.println(name + " punched out at " + time + " (worked " + hours + " hrs)");
+        }
     }
 }

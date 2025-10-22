@@ -7,8 +7,8 @@ public class Testing {
         System.out.println(r1.getReservationTotal());
 
         Employee emp1 = new Employee("111", "Lilia", "Front Desk", 20.0, 0);
-        emp1.punchIn(9.0);
-        emp1.punchOut(17.5);
+        emp1.punchTimeCard(9.0);
+        emp1.punchTimeCard(17.5);
         System.out.println("Total hours: " + emp1.getHoursWorked());
         System.out.println(emp1.getName() + "'s total pay: $" + emp1.getTotalPay());
 
