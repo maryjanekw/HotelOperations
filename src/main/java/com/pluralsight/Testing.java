@@ -5,5 +5,8 @@ public class Testing {
 
         Reservation r1 = new Reservation("double" , 3, true);
         System.out.println(r1.getReservationTotal());
+
+        Employee emp1 = new Employee("111", "Lilia", "Front Desk", 20.0, 45 );
+        System.out.println(emp1.getName() + "'s total pay: $" + emp1.getTotalPay());
     }
 }

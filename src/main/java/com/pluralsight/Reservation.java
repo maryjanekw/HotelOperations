@@ -40,14 +40,15 @@ public class Reservation {
     }
 
     public double getPrice(){
-        double baseRate = roomType.equalsIgnoreCase("king") ? 139.00f : 124.00f;
+        double baseRate = roomType.equalsIgnoreCase("king") ? 139.00 : 124.00;
         if (weekend){
-            baseRate *= 1.10f; // weekends rate 10% more
+            baseRate *= 1.10; // weekends rate 10% more
         }
         return baseRate;
     }
 
     public double getReservationTotal(){
-        return getPrice() * numberOfNights;
+        double total = getPrice() * numberOfNights;
+        return Math.round(total * 100.00)/100.00;
     }
 }
