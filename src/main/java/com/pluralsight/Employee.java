@@ -70,4 +70,17 @@ public class Employee {
     public double getTotalPay(){
         return (getRegularHours() * payRate) + (getOvertimeHours() * payRate * 1.5);
     }
+
+    private double punchInTime;
+
+    public void punchIn(double time){
+        punchInTime = time;
+        System.out.println(name + " puched in at" + time);
+    }
+
+    public void punchOut(double time){
+        double hours = time - punchInTime;
+        hoursWorked += hours;
+        System.out.println(name + " punched out at " + time + " (worked" + hours + "hrs)");
+    }
 }
