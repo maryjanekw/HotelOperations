@@ -18,6 +18,14 @@ public class Testing {
         room1.checkOut();
         room1.cleanRooom();
 
+        Hotel hotel = new Hotel("Sunset Inn", 5, 10);
+        hotel.printStatus();
+
+        hotel.bookRoom(2, true);   // Book 2 suites
+        hotel.bookRoom(3, false);  // Book 3 basic rooms
+        hotel.bookRoom(6, true);   // Try to overbook suites
+        hotel.printStatus();
+
 
     }
 }
